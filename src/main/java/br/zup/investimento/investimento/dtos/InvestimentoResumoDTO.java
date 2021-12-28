@@ -1,16 +1,17 @@
 package br.zup.investimento.investimento.dtos;
 
-public class ResumoDTO {
+import br.zup.investimento.investimento.enuns.Risco;
+
+public class InvestimentoResumoDTO {
 
     private String nome;
     private String cpf;
-    private double valorInvestido;
+    private Risco risco;
 
-
-    public ResumoDTO(String nome, String cpf, double valorInvestido) {
+    public InvestimentoResumoDTO(String nome, String cpf, Risco risco) {
         this.nome = nome;
         this.cpf = cpf;
-        this.valorInvestido = valorInvestido;
+        this.risco = risco;
     }
 
     public String getNome() {
@@ -29,11 +30,12 @@ public class ResumoDTO {
         this.cpf = cpf;
     }
 
-    public double getValorInvestido() {
-        return valorInvestido;
+    public Risco getRisco() {
+        return risco;
     }
 
-    public void setValorInvestido(double valorInvestido) {
-        this.valorInvestido = valorInvestido;
+    public void setRisco(Risco risco) {
+        this.risco = risco;
     }
+
 }
