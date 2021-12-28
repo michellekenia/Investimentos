@@ -9,6 +9,8 @@ import br.zup.investimento.investimento.model.Investimento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InvestimentoService {
 
@@ -63,6 +65,15 @@ public class InvestimentoService {
     public InvestimentoSaidaDTO salvarInvestimento(InvestimentoDTO investimentoDTO) {
         cadastrarInvestimento(investimentoDTO);
         return calcularInvestimento(investimentoDTO);
+    }
+
+    public List<Investimento> exibirTodosOsinvestimentos (Risco risco) {
+        if (risco != null) {
+            return investimentoRepository.findAllByRisco(risco);
+        }
+
+        List<Investimento> investimentos = (List<Investimento>) investimentoRepository.findAll();
+        return investimentos;
 
     }
 
