@@ -7,7 +7,7 @@ public class InvestimentoDTO {
     private String email;
     private String nome;
     private String cpf;
-    private Double valorPrevisto;
+    private Double valorInvestido;
     private int periodoDeAplicacaoMeses;
     private Risco risco;
 
@@ -18,7 +18,7 @@ public class InvestimentoDTO {
         this.email = email;
         this.nome = nome;
         this.cpf = cpf;
-        this.valorPrevisto = valorPrevisto;
+        this.valorInvestido = valorPrevisto;
         this.periodoDeAplicacaoMeses = periodoDeAplicacaoMeses;
         this.risco = risco;
     }
@@ -47,12 +47,12 @@ public class InvestimentoDTO {
         this.cpf = cpf;
     }
 
-    public Double getValorPrevisto() {
-        return valorPrevisto;
+    public Double getValorInvestido() {
+        return valorInvestido;
     }
 
-    public void setValorPrevisto(Double valorPrevisto) {
-        this.valorPrevisto = valorPrevisto;
+    public void setValorInvestido(Double valorInvestido) {
+        this.valorInvestido = valorInvestido;
     }
 
     public int getPeriodoDeAplicacaoMeses() {
