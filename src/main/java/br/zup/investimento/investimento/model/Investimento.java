@@ -13,13 +13,11 @@ public class Investimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(unique = true)
     private String email;
     private String nome;
-    @Column(unique = true)
     private String cpf;
     @Column(name = "valor_investido")
-    private Double valorInvestido;
+    private double valorInvestido;
     @Column(name = "periodo_de_aplicacao_em_meses")
     private int periodoDeAplicacaoMeses;
     @Enumerated(EnumType.STRING)

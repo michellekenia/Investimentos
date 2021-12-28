@@ -4,16 +4,15 @@ import br.zup.investimento.investimento.enuns.Risco;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 
 public class InvestimentoDTO {
 
-    @Email(message = "Email inválido")
+    @Email(message = "Email inválido.")
     private String email;
     private String nome;
-    @CPF(message = "CPF inválido")
+    @CPF(message = "CPF inválido.")
     private String cpf;
-    private Double valorInvestido;
+    private double valorInvestido;
     private int periodoDeAplicacaoMeses;
     private Risco risco;
 
