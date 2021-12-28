@@ -15,7 +15,7 @@ public class InvestimentoService {
     @Autowired
     private InvestimentoRepository investimentoRepository;
 
-    public InvestimentoSaidaDTO CalcularInvestimento(InvestimentoDTO investimentoDTO) {
+    public InvestimentoSaidaDTO calcularInvestimento(InvestimentoDTO investimentoDTO) {
 
         double taxadeRendimento = investimentoDTO.getRisco().getTaxaDeRendimento();
         double valorInvestido = investimentoDTO.getValorInvestido();
@@ -45,7 +45,7 @@ public class InvestimentoService {
         }
     }
 
-    public void cadastrarInvestimento (InvestimentoDTO investimentoDTO) {
+    public void cadastrarInvestimento(InvestimentoDTO investimentoDTO) {
         verificarMesesDoInvestimento(investimentoDTO);
         verificarRiscoEValorInvestido(investimentoDTO);
 
@@ -58,6 +58,12 @@ public class InvestimentoService {
         investimento.setRisco(investimentoDTO.getRisco());
 
         investimentoRepository.save(investimento);
+    }
+
+    public InvestimentoSaidaDTO salvarInvestimento(InvestimentoDTO investimentoDTO) {
+        cadastrarInvestimento(investimentoDTO);
+        return calcularInvestimento(investimentoDTO);
+
     }
 
 }
