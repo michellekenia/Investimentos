@@ -31,4 +31,10 @@ public class InvestimentoService {
         return investimentoSaidaDTO;
     }
 
+    public void verificarRiscoEValorInvestido (InvestimentoDTO investimentoDTO) {
+        if (investimentoDTO.getRisco() == Risco.ALTO && investimentoDTO.getValorInvestido()<5000.00) {
+            throw new valorNaoPermitidoParaRiscoAltoException ("Esse valor está abaixo do permitido para risco alto.");
+        }
+    }
+
 }
