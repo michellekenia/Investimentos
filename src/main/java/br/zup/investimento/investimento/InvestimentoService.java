@@ -31,9 +31,15 @@ public class InvestimentoService {
         return investimentoSaidaDTO;
     }
 
-    public void verificarRiscoEValorInvestido (InvestimentoDTO investimentoDTO) {
-        if (investimentoDTO.getRisco() == Risco.ALTO && investimentoDTO.getValorInvestido()<5000.00) {
-            throw new valorNaoPermitidoParaRiscoAltoException ("Esse valor está abaixo do permitido para risco alto.");
+    public void verificarRiscoEValorInvestido(InvestimentoDTO investimentoDTO) {
+        if (investimentoDTO.getRisco() == Risco.ALTO && investimentoDTO.getValorInvestido() < 5000.00) {
+            throw new valorNaoPermitidoParaRiscoAltoException("Esse valor está abaixo do permitido para risco alto.");
+        }
+    }
+
+    public void verificarMesesDoInvestimento(InvestimentoDTO investimentoDTO) {
+        if (investimentoDTO.getPeriodoDeAplicacaoMeses() < 2) {
+            throw new periodoInferiorAoPermitidoException("O período de meses não pode ser inferior a dois.");
         }
     }
 
