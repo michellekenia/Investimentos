@@ -1,9 +1,10 @@
-package br.zup.investimento.investimento;
+package br.zup.investimento.investimento.model;
 
-import java.time.LocalDate;
+import br.zup.investimento.investimento.enuns.Risco;
 
-public class InvestimentoDTO {
+public class Investimento {
 
+    private int id;
     private String email;
     private String nome;
     private String cpf;
@@ -11,16 +12,25 @@ public class InvestimentoDTO {
     private int periodoDeAplicacaoMeses;
     private Risco risco;
 
-    public InvestimentoDTO() {
+    public Investimento() {
     }
 
-    public InvestimentoDTO(String email, String nome, String cpf, Double valorPrevisto, int periodoDeAplicacaoMeses, Risco risco) {
+    public Investimento(int id, String email, String nome, String cpf, Double valorPrevisto, int periodoDeAplicacaoMeses, Risco risco) {
+        this.id = id;
         this.email = email;
         this.nome = nome;
         this.cpf = cpf;
         this.valorPrevisto = valorPrevisto;
         this.periodoDeAplicacaoMeses = periodoDeAplicacaoMeses;
         this.risco = risco;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {

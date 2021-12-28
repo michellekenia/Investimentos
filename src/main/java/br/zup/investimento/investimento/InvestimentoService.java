@@ -1,2 +1,4 @@
-package br.zup.investimento.investimento;public class InvestimentoService {
+package br.zup.investimento.investimento;
+
+public class InvestimentoService {
 }

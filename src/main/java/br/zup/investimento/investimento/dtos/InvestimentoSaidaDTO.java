@@ -1,4 +1,4 @@
-package br.zup.investimento.investimento;
+package br.zup.investimento.investimento.dtos;
 
 public class InvestimentoSaidaDTO {
 

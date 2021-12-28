@@ -1,2 +1,4 @@
-package br.zup.investimento.investimento;public class InvestimentoController {
+package br.zup.investimento.investimento;
+
+public class InvestimentoController {
 }
