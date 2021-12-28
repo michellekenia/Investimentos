@@ -3,6 +3,8 @@ package br.zup.investimento.investimento;
 import br.zup.investimento.investimento.dtos.InvestimentoDTO;
 import br.zup.investimento.investimento.dtos.InvestimentoSaidaDTO;
 import br.zup.investimento.investimento.enuns.Risco;
+import br.zup.investimento.investimento.exceptions.periodoInferiorAoPermitidoException;
+import br.zup.investimento.investimento.exceptions.valorNaoPermitidoParaRiscoAltoException;
 import br.zup.investimento.investimento.model.Investimento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
