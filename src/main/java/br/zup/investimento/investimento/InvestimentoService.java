@@ -43,4 +43,19 @@ public class InvestimentoService {
         }
     }
 
+    public void cadastrarInvestimento (InvestimentoDTO investimentoDTO) {
+        verificarMesesDoInvestimento(investimentoDTO);
+        verificarRiscoEValorInvestido(investimentoDTO);
+
+        Investimento investimento = new Investimento();
+        investimento.setEmail(investimentoDTO.getEmail());
+        investimento.setNome(investimentoDTO.getNome());
+        investimento.setCpf(investimentoDTO.getCpf());
+        investimento.setValorInvestido(investimentoDTO.getValorInvestido());
+        investimento.setPeriodoDeAplicacaoMeses(investimentoDTO.getPeriodoDeAplicacaoMeses());
+        investimento.setRisco(investimentoDTO.getRisco());
+
+        investimentoRepository.save(investimento);
+    }
+
 }
