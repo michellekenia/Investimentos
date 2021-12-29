@@ -3,6 +3,8 @@ package br.zup.investimento.investimento.model;
 import br.zup.investimento.investimento.enuns.Risco;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -13,8 +15,10 @@ public class Investimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)
     private String email;
     private String nome;
+    @Column(unique = true)
     private String cpf;
     @Column(name = "valor_investido")
     private double valorInvestido;
