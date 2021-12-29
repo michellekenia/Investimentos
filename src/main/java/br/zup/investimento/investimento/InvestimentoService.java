@@ -3,6 +3,7 @@ package br.zup.investimento.investimento;
 import br.zup.investimento.investimento.dtos.InvestimentoDTO;
 import br.zup.investimento.investimento.dtos.InvestimentoSaidaDTO;
 import br.zup.investimento.investimento.enuns.Risco;
+import br.zup.investimento.investimento.exceptions.investimentoNaoEncontradoException;
 import br.zup.investimento.investimento.exceptions.periodoInferiorAoPermitidoException;
 import br.zup.investimento.investimento.exceptions.valorNaoPermitidoParaRiscoAltoException;
 import br.zup.investimento.investimento.model.Investimento;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InvestimentoService {
@@ -67,7 +69,7 @@ public class InvestimentoService {
         return calcularInvestimento(investimentoDTO);
     }
 
-    public List<Investimento> exibirTodosOsinvestimentos (Risco risco) {
+    public List<Investimento> exibirTodosOsinvestimentos(Risco risco) {
         if (risco != null) {
             return investimentoRepository.findAllByRisco(risco);
         }
@@ -77,4 +79,11 @@ public class InvestimentoService {
 
     }
 
+    public Investimento buscarInvestimentoPorId(int id) {
+        Optional<Investimento> investimento = investimentoRepository.findById(id);
+        if (investimento.isEmpty()) {
+            throw new investimentoNaoEncontradoException ("Esse investimento não existe.");
+        }
+        return investimento.get();
+    }
 }
