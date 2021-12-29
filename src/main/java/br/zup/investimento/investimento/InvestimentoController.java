@@ -36,8 +36,11 @@ public class InvestimentoController {
         }
 
         return investimentoResumoDTOS;
+    }
 
-
+    @GetMapping ("/{id}")
+    public Investimento buscarInvestimentoPorId (@PathVariable int id) {
+        return investimentoService.buscarInvestimentoPorId(id);
     }
 
 }
