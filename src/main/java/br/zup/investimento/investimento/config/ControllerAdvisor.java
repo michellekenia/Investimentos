@@ -1,5 +1,6 @@
 package br.zup.investimento.investimento.config;
 
+import br.zup.investimento.investimento.exceptions.investimentoNaoEncontradoException;
 import br.zup.investimento.investimento.exceptions.periodoInferiorAoPermitidoException;
 import br.zup.investimento.investimento.exceptions.valorNaoPermitidoParaRiscoAltoException;
 import org.springframework.http.HttpStatus;
@@ -49,6 +50,12 @@ public class ControllerAdvisor {
             return new MensagemDeErro("Esse tipo de risco não é válido.");
         }
         return new MensagemDeErro(exception.getLocalizedMessage());
+    }
+
+    @ExceptionHandler(investimentoNaoEncontradoException.class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    public MensagemDeErro manipularExcecaoDeInvestimentoNaoEncontrado (investimentoNaoEncontradoException exception) {
+        return new MensagemDeErro(exception.getMessage());
     }
 
 }
