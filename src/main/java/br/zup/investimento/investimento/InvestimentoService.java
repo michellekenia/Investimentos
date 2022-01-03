@@ -73,7 +73,6 @@ public class InvestimentoService {
         if (risco != null) {
             return investimentoRepository.findAllByRisco(risco);
         }
-
         List<Investimento> investimentos = (List<Investimento>) investimentoRepository.findAll();
         return investimentos;
 
@@ -82,8 +81,9 @@ public class InvestimentoService {
     public Investimento buscarInvestimentoPorId(int id) {
         Optional<Investimento> investimento = investimentoRepository.findById(id);
         if (investimento.isEmpty()) {
-            throw new investimentoNaoEncontradoException ("Esse investimento não existe.");
+            throw new investimentoNaoEncontradoException("Esse investimento não existe.");
         }
         return investimento.get();
     }
+
 }
